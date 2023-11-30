@@ -1,5 +1,3 @@
-# SPDX-FileCopyrightText: 2021 ladyada for Adafruit Industries
-# SPDX-License-Identifier: MIT
 
 import time
 import busio
@@ -8,6 +6,7 @@ import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 from gpiozero import LED
+
 
 # define GPIO pin for reading LED
 LED_PIN = 17
@@ -25,10 +24,15 @@ mcp = MCP.MCP3008(spi, cs)
 # create an analog input channel on pin 0
 chan = AnalogIn(mcp, MCP.P0)
 
+#get offset val of voltage
+print("Reading Offset Value...")
+offset = chan.voltage
+print("Current Offset Value:" + str(offset))
+led.on()
+time.sleep(10)
+
+
 while True:
-	led.on()
 	print("Raw ADC Value: ", chan.value)
-	print("ADC Voltage: " + str(chan.voltage) + "V")
-	time.sleep(1)
-	led.off()
-	time.sleep(4)
+	print("ADC Voltage: " + str(chan.voltage - offset) + "V")
+	time.sleep(5)
