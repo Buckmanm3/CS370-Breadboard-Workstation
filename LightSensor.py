@@ -1,4 +1,3 @@
-
 import time
 import busio
 import digitalio
@@ -22,16 +21,12 @@ cs = digitalio.DigitalInOut(board.D5)
 mcp = MCP.MCP3008(spi, cs)
 
 # create an analog input channel on pin 0
-chan = AnalogIn(mcp, MCP.P1)
+chan = AnalogIn(mcp, MCP.P0)
 
-#get offset val of voltage
-#print("Reading Offset Value...")
-#offset = chan.voltage
-#print("Current Offset Value:" + str(offset))
-
-
+led.on()
 
 while True:
 	print("Raw ADC Value: ", chan.value)
 	print("ADC Voltage: " + str(chan.voltage) + "V")
 	time.sleep(.5)
+
