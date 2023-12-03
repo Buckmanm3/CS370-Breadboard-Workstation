@@ -5,7 +5,7 @@ from time import sleep
 default = "image"
 
 def takeImage(name):
-	os.system("libcamera-jpeg -o "+name+".jpg")
+	os.system("libcamera-jpeg -o "+name+".jpg --qt-preview")
 
 def setDefault(name):
 	default = name;
