@@ -8,6 +8,4 @@ def takeImage(name):
 	os.system("libcamera-jpeg -o "+name+".jpg -n")
 
 def setDefault(name):
-	default = name;
-
-takeImage(default)
+	default = name

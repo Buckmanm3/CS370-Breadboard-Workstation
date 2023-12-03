@@ -5,12 +5,15 @@ import board
 import adafruit_mcp3xxx.mcp3008 as MCP
 from adafruit_mcp3xxx.analog_in import AnalogIn
 
+printing = True
+
 # create the spi bus
 spi = busio.SPI(clock=board.SCK, MISO=board.MISO, MOSI=board.MOSI)
 # create the cs (chip select)
 cs = digitalio.DigitalInOut(board.D5)
 # create the mcp object
 mcp = MCP.MCP3008(spi, cs)
+
 
 # create an analog input channel on pin 0-7
 chan0 = AnalogIn(mcp, MCP.P0)
@@ -26,6 +29,7 @@ currChannel = chan0;
 
 #function for selecting pins
 def SelectChannel(pinNumber):
+    global currChannel
     match pinNumber:
         case 'A':
             currChannel = chan0;
@@ -43,23 +47,24 @@ def SelectChannel(pinNumber):
             currChannel = chan6;
         case 'H':
             currChannel = chan7;
+        case default:
+            print("Error " + str(pinNumber) + " is an invalid pin")
 
 #read a single time
-def readOnce():
+def readOnce(pinNum):
+    SelectChannel(pinNum)
     return currChannel.voltage
 
 #read for a duration (specified in seconds) - prints to terminal
 def readDuration(duration):
     while duration > 0:
-        print("Raw ADC Value: ", currChannel.value)
         print("ADC Voltage: " + str(currChannel.voltage) + "V")
-        duration-.5;
+        duration-=.5;
         time.sleep(.5)
 
 
 #function to read forever (every half a second)
 def readForever():
-    while True:
-        print("Raw ADC Value: ", currChannel.value)
+    while printing:
         print("ADC Voltage: " + str(currChannel.voltage) + "V")
         time.sleep(.5)
