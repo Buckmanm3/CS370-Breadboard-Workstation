@@ -46,10 +46,9 @@ def SelectChannel(pinNumber):
 
 #read a single time
 def readOnce():
-    print("Raw ADC Value: ", currChannel.value)
-    print("ADC Voltage: " + str(currChannel.voltage) + "V")
+    return currChannel.voltage
 
-#read for a duration (specified in seconds)
+#read for a duration (specified in seconds) - prints to terminal
 def readDuration(duration):
     while duration > 0:
         print("Raw ADC Value: ", currChannel.value)
