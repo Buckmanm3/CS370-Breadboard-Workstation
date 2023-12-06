@@ -29,7 +29,7 @@ class Controller(threading.Thread):
     def run(self):
         global printing
         global pinNum
-        print("Starting Workspace:\nCommands:\nC - take photo\nV - display voltage (\'q\' to exit)\nP - select voltage")
+        print("Starting Workspace:\nCommands:\nC - take photo\nV - display voltage (while displaying press a-h to swap between pins) (\'q\' to exit)\n")
         while True:
             UserInput = input(">>>")
             match UserInput:
