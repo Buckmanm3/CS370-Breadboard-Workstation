@@ -1,7 +1,4 @@
-# CS370FishProject
- ![Fish Pic](https://static.wikia.nocookie.net/banjokazooie/images/c/c4/Snacker_01.png/revision/latest?cb=20141102220839)
- ![Snacker](https://static.wikia.nocookie.net/banjokazooie/images/8/8c/Snacker_Blinking.gif/revision/latest/smart/width/250/height/250?cb=20160408200120)
-   
+# CS370_Breadboard_Workstation_Project
 Camera.py  
  This script uses the libcamera-jpeg tool to capture images with our Pi camera.   
  It has two functionalities: capturing an image and setting a specified name, if none is provided, setting a default name.  
@@ -24,7 +21,7 @@ GUI.py
 This Python script defines user functionality for Camera.py and Pins.py with  GUI. 
 It has three functionalities that the user can interact with on the GUI, upon starting they will be prompted with this page:  
  ![alt text](CS370TP_GUI.png)  
- The user can enter in the text box and take a picture that will be saved with that name, select a channel for voltmeter reading, and view live voltmeter readings from the selected channel.  
+The user can enter in the text box and take a picture that will be saved with that name, select a channel for voltmeter reading, and view live voltmeter readings from the selected channel.  
    
 example.py  
  This Python script loops every .5 seconds using the method readOnce() from Pins.py to read ADC input for voltage.   
