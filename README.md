@@ -32,3 +32,6 @@ example.py
    
 example.jpg  
  Image generated from running example.py and reading a voltage of 1.5 or higher.   
+  
+Report.pdf  
+ Our report for this assignment
