@@ -1,4 +1,7 @@
-# CS370_Breadboard_Workstation_Project
+# CS370_Breadboard_Workstation_Project  
+  
+Matthew Buckman (matthew.buckman@colostate.edu), Ethan Smith (ethan02@colostate.edu), Colton Leopold (colton.leopold@colostate.edu)   
+  
 Camera.py  
  This script uses the libcamera-jpeg tool to capture images with our Pi camera.   
  It has two functionalities: capturing an image and setting a specified name, if none is provided, setting a default name.  
